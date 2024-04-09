@@ -12,22 +12,22 @@ int main() {
 	// 입력받기
 	int n; cin >> n;
 
-	int arr[100][100];
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+	int arr[105][105];
+	for (int i = 0; i < 105; i++) {
+		for (int j = 0; j < 105; j++) {
 			arr[i][j] = 0;
 		}
 	}
 
 	for (int i = 1; i < n+1; i++) {
-		for (int j = 0; j < n; j++) {
+		for (int j = 1; j < n+1; j++) {
 			cin >> arr[i][j];
 		}
 	}
 
 	int N = 0;	// 조건을 만족하는 칸의 수
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+	for (int i = 1; i < n+1; i++) {
+		for (int j = 1; j < n+1; j++) {
 			// 동서남북을 돌아보며
 			// 1이 3개 이상이면
 			// N++
