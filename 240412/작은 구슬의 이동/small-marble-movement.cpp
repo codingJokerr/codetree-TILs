@@ -25,7 +25,7 @@ int main() {
 	
 
 		if (dir == 0 || dir == 1) {// c값 변환
-			c += dx[dir];
+			
 
 			if (c == 1 || c == n) {
 				i++;
@@ -34,20 +34,21 @@ int main() {
 				else if (dir == 1) { dir--; }
 			}
 
-			
-			//cout << "r값: " << r << endl;
+			c += dx[dir];
+			//cout << "c값: " << c << endl;
 		}
 		else if (dir == 2 || dir == 3) {// r값 변환
-			r += dy[dir];
+			
 
 			if (r == 1 || r == n) {
 				i++;
+				//cout << "i값이 +1됨" << endl;
 				if (dir == 2) { dir++; }
 				else if (dir == 3) { dir--; }
 			}
 
-			
-			//cout << "c값: " << c << endl;
+			r += dy[dir];
+			//cout << "r값: " << r << endl;
 		}
 	}
 	cout << r << " " << c;
