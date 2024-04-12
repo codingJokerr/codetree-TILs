@@ -25,29 +25,33 @@ int main() {
 	
 
 		if (dir == 0 || dir == 1) {// c값 변환
-			
+			c += dx[dir];
 
 			if (c == 1 || c == n) {
 				i++;
 				//cout << "i값이 +1됨" << endl;
-				if (dir == 0) { dir++; }
-				else if (dir == 1) { dir--; }
+				if (dir == 0) { dir++;}
+				else if (dir == 1) { dir--;}
+				
+				continue;
 			}
 
-			c += dx[dir];
+			
 			//cout << "c값: " << c << endl;
 		}
 		else if (dir == 2 || dir == 3) {// r값 변환
-			
+			r += dy[dir];
 
 			if (r == 1 || r == n) {
 				i++;
 				//cout << "i값이 +1됨" << endl;
-				if (dir == 2) { dir++; }
-				else if (dir == 3) { dir--; }
+				if (dir == 2) { dir++;}
+				else if (dir == 3) { dir--;}
+
+				continue;
 			}
 
-			r += dy[dir];
+			
 			//cout << "r값: " << r << endl;
 		}
 	}
