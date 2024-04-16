@@ -10,7 +10,7 @@ int dy[DIR_NUM] = { 0, 0, -1, 1 };
 int n, t;
 int r, c;
 char d;
-int dir = 0;
+int dir;
 
 int main() {
 	cin >> n >> t >> r >> c >> d;
@@ -22,52 +22,36 @@ int main() {
 	else if (d == 'U') dir = 3;
 
 	for (int i = 0; i < t; i++) {// t만큼 반복한다.
-		if (dir == 0 || dir == 1) {
+		// 0과 n+1을 이용해볼까?
 
-			if (c < 1 || c > n) {
-				if (dir == 0) {
+		// 1 0 1 2 3 이 정답이자나
+		if (dir == 0 || dir == 1) {// 오 왼으로
+			c += dx[dir];
+			//cout << "c값: " << c << endl;
+
+			if (c == 0 || c == n+1) {// 범위를 벗어난 경우
+				if (dir == 0) {// R방향
 					dir++;
-					cout << "dir +" << endl;
-					if (i == t - 1) {
-						i++;
-					}
-					else {
-						i++;
-						c += dx[dir];
-					}
+					c = n;
 				}
 				else {
 					dir--;
-					cout << "dir -" << endl;
-					if (i == t - 1) {
-						break;
-					}
-					else {
-						i++;
-						c += dx[dir];
-					}
+					c = 1;
 				}
 			}
-			else {
-				c += dx[dir];
-				cout << "c값: " << c << endl;
-			}
-			
 		}
-		else {
+		else {// dir == 1 || dir == 2
+			r += dy[dir];
 
-			if (r == 1 || r == n) {
-				if (dir == 2) {
+			if (r == 0 || r == n+1) {
+				if (dir == 2) {// D방향
 					dir++;
-					cout << "dir +" << endl;
+					r = n;
 				}
 				else {
 					dir--;
-					cout << "dir -" << endl;
+					d = 1;
 				}
-			}
-			else {
-				r += dy[dir];
 			}
 		}
 	}
