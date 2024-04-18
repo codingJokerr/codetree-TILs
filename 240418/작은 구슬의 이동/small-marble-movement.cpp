@@ -1,61 +1,47 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
+#define ASCII_NUM 128
 #define DIR_NUM 4
 
-// 동서남북 == RLDU
-int dx[DIR_NUM] = { 1, -1, 0, 0 };
-int dy[DIR_NUM] = { 0, 0, -1, 1 };
-
 int n, t;
-int r, c;
-char d;
-int dir;
+int x, y, dir;
+int mapper[ASCII_NUM];
 
-int main() {
-	cin >> n >> t >> r >> c >> d;
+int dx[DIR_NUM] = { 0, 1, -1, 0 };
+int dy[DIR_NUM] = { 1, 0, 0, -1 };
 
-	// dir값 지정
-	if (d == 'R') dir = 0;
-	else if (d == 'L') dir = 1;
-	else if (d == 'D') dir = 2;
-	else if (d == 'U') dir = 3;
+bool InRange(int x, int y) {
+	return 0 <= x && x < n && 0 <= y && y < n;
+}
 
-	for (int i = 0; i < t; i++) {// t만큼 반복한다.
-		// 0과 n+1을 이용해볼까?
+void Simulate() {
+	while (t--) {
+		int nx = x + dx[dir], ny = y + dy[dir];
 
-		// 1 0 1 2 3 이 정답이자나
-		if (dir == 0 || dir == 1) {// 오 왼으로
-			
-			if (c == 0 || c == n+1) {// 범위를 벗어난 경우
-				if (dir == 0) {// R방향
-					dir++;
-					c = n;
-				}
-				else {
-					dir--;
-					c = 1;
-				}
-			}
-			c += dx[dir];
-			//cout << "c값: " << c << endl;
-
+		if (InRange(nx, ny)) {
+			x = nx, y = ny;
 		}
-		else {// dir == 1 || dir == 2
-
-			if (r == 0 || r == n+1) {
-				if (dir == 2) {// D방향
-					dir++;
-					r = n;
-				}
-				else {
-					dir--;
-					r = 1;
-				}
-			}
-
-			r += dy[dir];
+		else {
+			dir = 3 - dir;
 		}
 	}
-	cout << r << " " << c;
+}
+
+int main() {
+	cin >> n >> t;
+
+	mapper['R'] = 0;
+	mapper['D'] = 1;
+	mapper['U'] = 2;
+	mapper['L'] = 3;
+
+	char c_dir;
+	cin >> x >> y >> c_dir;
+	x--; y--; dir = mapper[c_dir];
+
+	Simulate();
+
+	cout << x + 1 << " " << y + 1;
 }
