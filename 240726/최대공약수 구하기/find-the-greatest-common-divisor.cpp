@@ -22,7 +22,7 @@ void FindGcd(int n, int m) {
     //         }
     //     }
     // }
-    cout<<gcd;
+    // cout<<gcd;
 }
 
 int main() {
