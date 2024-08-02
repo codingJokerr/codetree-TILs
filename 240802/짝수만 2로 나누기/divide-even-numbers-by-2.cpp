@@ -53,21 +53,15 @@ using namespace std;
 int arr[MAX_N];
 int N;
 
-void DivideEven(int *arr) {
-    for(int i=0; i<N; i++) {
-        if(arr[i]%2== 0){
-            arr[i] /= 2;
-        }
-        cout<<arr[i]<<" ";
-    }  
-}
-
 int main() {
     cin>>N;
 
     for(int i=0; i<N; i++) {
         cin>>arr[i];
+        if(arr[i]%2==0)
+            arr[i] /= 2;
+        
+        cout<<arr[i]<<" ";
     }
 
-    DivideEven(arr);
 }
