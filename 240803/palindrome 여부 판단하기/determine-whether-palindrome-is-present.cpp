@@ -22,7 +22,7 @@ using namespace std;
 bool IsPalindrome(string &s) {
     int len = sizeof(s)/8-1;
     //cout<<"***"<<len<<"***"<<endl;
-    for(int i=0; i<len/2+1; i++) {
+    for(int i=0; i<len/2; i++) {
         //cout<<"i: "<<i<<endl;
         if(s[i] != s[len-1-i])
             return false;
