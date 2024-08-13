@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+
 using namespace std;
 
 #define MAX_N 1000
@@ -11,7 +12,7 @@ int main() {
     for(int i=0; i<n; i++)
         cin>>arr[n];
 
-    sort(arr, arr+n);
+    sort(arr, arr+n+1);
 
     cout<<arr[k+1];
 }
