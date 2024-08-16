@@ -10,47 +10,34 @@ string ans[MAX_N];
 int n, k;
 string T;
 
+int cnt;
 string Judge(string a) {
     for(int i=0; i<T.size(); i++) {
         if(T[i]!=a[i]) {
+            cnt++;
             return "X";
         }
     }
     return a;
 }
 
-void Reorder() {
-    for(int i=0; i<n; i++) {
-        for(int j=0; j<n; j++) {
-            if(word[i] != "X")
-                ans[j] = word[i];
-        }
-    }
-}
-
 int main() {
     cin>>n>>k>>T;
 
+    // 단어 입력 && 조건 부합만 word에 저장
     string a;
     for(int i=0; i<n; i++) {
         cin>>a;
-        word[i] = Judge(a);
+        string judge = Judge(a);
+        if(judge == a )
+            word[i-cnt] = judge;
     }
-
-    for(int i=0; i<n; i++)
-        cout<<word[i]<<endl;
-
-    cout<<"*********************\n";
 
     sort(word, word+n);
 
     for(int i=0; i<n; i++)
         cout<<word[i]<<endl;
 
-    cout<<"*********************\n";
 
-    for(int i=0; i<n; i++)
-        cout<<ans[i]<<endl;
-
-    cout<<ans[k-1];
+    cout<<word[k-1];
 }
