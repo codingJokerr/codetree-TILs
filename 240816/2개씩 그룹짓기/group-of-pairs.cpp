@@ -15,6 +15,11 @@ int main() {
 
     sort(arr, arr+2*N);
     
-    int ans = arr[N] + arr[N-1];
-    cout<<ans;
+    int ans1 = arr[N] + arr[N-1];
+    int ans2 = arr[0] + arr[2*N-1];
+    
+    if(ans1>ans2)
+        cout<<ans1;
+    else
+        cout<<ans2;
 }
