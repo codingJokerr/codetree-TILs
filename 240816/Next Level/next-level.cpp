@@ -2,24 +2,38 @@
 #include <string>
 using namespace std;
 
-class Person {
+class User {
 public:
-    string ID;
+    string id;
     int lev;
 
-    Person(string ID = "codetree", int lev = 10) {
-        this->ID = ID;
+    User(string i ="", int lev =0) {
+        this->id = id;
         this->lev = lev;
     }
 };
 
 int main() {
-    string ID;
-    int lev;
-    cin>>ID>>lev;
+    // 초기값을 이용해서 첫 번째 User 객체를 만듦
+    User user1 = User();
 
-    Person person1 = Person(ID, lev);
+    // 값 변경
+    user1.id = "codetree";
+    user1.lev = 10;
 
-    cout<<"user codetree lv 10\n";
-    cout<<"user "<<person1.ID<<" lv "<<person1.lev;
+    // 변수 선언 및 입력
+    string id2;
+    int lev2;
+    cin>>id2>>lev2;
+
+    // 초기값을 이용해서 두 번째 User 객체를 만듦
+    User user2 = User();
+
+    // 값 변경
+    user2.id = id2;
+    user2.lev = lev2;
+
+    // 출력
+    cout<<"user "<<user1.id<<" lv "<<user1.lev<<endl;
+    cout<<"user "<<user2.id<<" lv "<<user2.lev;
 }
