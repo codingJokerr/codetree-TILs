@@ -27,9 +27,9 @@ int main() {
     cin>>id2>>lev2;
 
     // 초기값을 이용해서 두 번째 User 객체를 만듦
-    User user2 = User();
+    User user2 = User();    //  0
 
-    // 값 변경
+    // 입력받은 값을 넣어, 값 변경
     user2.id = id2;
     user2.lev = lev2;
 
