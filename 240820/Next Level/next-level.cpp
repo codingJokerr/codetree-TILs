@@ -16,7 +16,7 @@ using namespace std;
 // };
 
 // User 정보 나타내는 pair 선언
-pair<string, int> user1 = make_pair("codetree", 0);
+pair<string, int> user1 = make_pair("codetree", 10);
 pair<string, int> user2;
 
 int main() {
