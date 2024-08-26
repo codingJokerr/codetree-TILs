@@ -35,6 +35,9 @@ int main() {
         users[i] = User(name, h, w);
     }
 
+    cout<<fixed;
+    cout.precision(1);
+
     sort(users, users+5, cmpN);
     cout<<"name\n";
     for(int i=0; i<5; i++) {
