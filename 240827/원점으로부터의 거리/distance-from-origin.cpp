@@ -20,7 +20,10 @@ public:
 };
 
 bool Cmp(const Point &a, const Point &b) {
-    return a.distance < b.distance;
+    if(a.distance != b.distance)
+        return a.distance < b.distance;
+
+    return a.number < b.number;
 }
 
 Point points[MAXN];
