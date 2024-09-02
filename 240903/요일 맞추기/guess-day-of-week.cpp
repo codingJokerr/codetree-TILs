@@ -5,49 +5,51 @@ int main() {
     // m1월 d1일 ~ m2월 d2일까지의 날짜 차 구한 후 %7의 값에 따라 요일 구하기
 
     int m1, m2, d1, d2;
-    cin>>m1>>m2>>d1>>d2;
+    cin>>m1>>d1>>m2>>d2;
 
     int month[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    
-    int dif=0;   
-    // Day에 대한 처리
-    if(d2 > d1) {
-        dif = d2-d1;
-    }
-    else {// d2 < d1
-        dif = d2 - d1 + month[m2-1];
-        m2--;
-        // 5/2 - 4/29
+
+    int days1 = d1;
+    for(int i=1; i<m1; i++) {
+        days1 += month[i];
     }
 
-    // Month에 대한 처리
-    for(int i=m1+1; i<m2; i++) {
-        dif += month[i];
+    int days2 = d2;
+    for(int i=1; i<m2; i++) {
+        days2 += month[i];
     }
 
-    //cout<<"***"<<dif<<endl;
+    int dif=0;
+    if(days2 > days1) 
+        dif = days2 - days1;
+    else
+        dif = days2 - days1 + 7;
+
+    //cout<<"*** dif "<<dif;
 
     int ans = dif % 7;
+    //cout<<"\n*** ans "<<ans<<endl;
+
     switch (ans) {
 	case 1:
-        cout<<"Tue";
-        break;
+                cout<<"Tue";
+                break;
 	case 2:
-        cout<<"Wed";
-        break;
+                cout<<"Wed";
+                break;
 	case 3:
-        cout<<"Thu";
-        break;
+                cout<<"Thu";
+                break;
 	case 4:
-        cout<<"Fri";
-        break;
-	case 5: 
-		cout<<"Sat";
-        break;
+                cout<<"Fri";
+                break;
+	case 5: 		
+                cout<<"Sat";
+                break;
 	case 6:
-        cout<<"Sun";
-        break;
+                cout<<"Sun";
+                break;
 	default:
-        cout<<"Mon";
+                cout<<"Mon";
 	}
 }
