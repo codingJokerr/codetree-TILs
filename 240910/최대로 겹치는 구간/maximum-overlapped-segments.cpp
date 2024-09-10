@@ -1,6 +1,6 @@
 #include <iostream>
 
-#define MAXN 100
+#define MAXN 200
 #define OFFSET 100
 
 using namespace std;
