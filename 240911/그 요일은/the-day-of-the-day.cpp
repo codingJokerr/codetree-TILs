@@ -8,7 +8,7 @@ int days[13] = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 int CalDays(int month, int day) {
     int sum = day;
     
-    for(int i=1; i<=month; i++) {// 1월부터 직전 달까지
+    for(int i=1; i<month; i++) {// 1월부터 직전 달까지
         sum += days[i];
     }
 
