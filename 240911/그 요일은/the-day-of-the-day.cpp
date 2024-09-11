@@ -28,13 +28,14 @@ int main() {
 		if(checkDay == dayOfWeek[i])
 			idx = i;
 	}
+	day1 += idx;
 
     // day1이 항상 앞선다.
     int dif = day2 - day1;
 
     // m1월 d1월은 월요일이다.
     // dif + 해당 요일 처리... +) -7??
-    int ans = (dif+idx)/7;
+    int ans = dif / 7 +1;
 
 	cout<<ans;
 }
