@@ -23,20 +23,20 @@ int main() {
     int day2 = CalDays(m2, d2);
 
 	// day1이 항상 앞선다.
-    int dif = day2 - day1;
-	if(dif < 7) 
+    int diff = day2 - day1;
+	if(diff < 7) 
 		cout << 0;
 	else {
 		string dayOfWeek[7] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
 		int idx = 0;
-		for(int i=0; i<7; i++) {
+		for(int i=0; i<7; i++) {// 요일 숫자로 저장하기
 			if(checkDay == dayOfWeek[i])
 				idx = i;
 		}
     	// m1월 d1월은 월요일이다.
-    	// dif + 해당 요일 처리... +) -7??
-	
-    	int ans = (dif / 7) +1;	// 0인 경우가 없다.
+    	// diff + 해당 요일 처리... +) -7??
+		diff -= idx;
+    	int ans = (diff / 7) +1;	// 0인 경우가 없다.
 
 		cout<<ans;
 	}
