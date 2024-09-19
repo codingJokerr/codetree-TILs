@@ -26,8 +26,8 @@ int main() {
     }
 
     int area = 0;
-    for(int i=0; i<=MAXR+1; i++) {
-        for(int j=0; j<=MAXR+1; j++) {
+    for(int i=0; i<MAXR+1; i++) {
+        for(int j=0; j<MAXR+1; j++) {
             if(checked[i][j] == 1)
                 area++;
         }
